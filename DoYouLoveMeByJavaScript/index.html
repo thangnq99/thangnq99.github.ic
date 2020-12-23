@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function f1() {
+            alert("Yes. I do <3.");
+        }
+        flag = 1;
+
+        function f2() {
+            var x = Math.random() * window.innerHeight;
+            var y = Math.random() * window.innerWidth;
+            document.getElementById("No").style.left = y + "px";
+            document.getElementById("No").style.top = x + "px";
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1 style="position: absolute; left: 250px;"><b>Do you love me?</b></h1>
+    <div style="position: absolute; left: 300px; top: 100px;">
+        <input type="button" value="Yes" onclick="f1()">
+    </div>
+    <div id="No" style="position: absolute; left: 350px; top: 100px;">
+        <input type="button" value="No" onmousemove="f2()">
+    </div>
+
+</body>
+
+</html>
