@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Caro</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="caro.js"></script>
+</head>
+
+<body onload="start()">
+	<h1>Welcome to my Tic tac toe</h1>
+	<div id="msg">msg will go</div>
+	<table border="1">
+		<tr>
+			<td id="s1" class="matrix" onclick="nextTurn(this)"></td>
+			<td id="s2" class="matrix" onclick="nextTurn(this)"></td>
+			<td id="s3" class="matrix" onclick="nextTurn(this)"></td>
+		</tr>
+		<tr>
+			<td id="s4" class="matrix" onclick="nextTurn(this)"></td>
+			<td id="s5" class="matrix" onclick="nextTurn(this)"></td>
+			<td id="s6" class="matrix" onclick="nextTurn(this)"></td>
+		</tr>
+		<tr>
+			<td id="s7" class="matrix" onclick="nextTurn(this)"></td>
+			<td id="s8" class="matrix" onclick="nextTurn(this)"></td>
+			<td id="s9" class="matrix" onclick="nextTurn(this)"></td>
+		</tr>
+	</table>
+	<button><a href="javascript:start();" style="text-decoration: none">Reset</a></button>
+</body>
+
+</html>
