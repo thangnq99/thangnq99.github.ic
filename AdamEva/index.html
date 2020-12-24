@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+</head>
+
+<body>
+    <table border="1" width="80%" align="center">
+        <tr>
+            <td>Name</td>
+            <td align="center">Apple</td>
+            <td align="center">Adam</td>
+            <td align="center">Eva</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td align="center" id="apple"></td>
+            <td align="center" id="adam"></td>
+            <td align="center" id="eva"></td>
+        </tr>
+        <tr>
+            <td>Action</td>
+            <td align="center" id="message"></td>
+            <td align="center" onclick="eatApple('adam');"><button>Eat</button></td>
+            <td align="center" onclick="eatApple('eva');"><button>Eat</button></td>
+        </tr>
+    </table>
+
+    <script>
+        var Apple = function (weight) {
+            this.weight = weight;
+            this.decrease = function () {
+                this.weight--;
+            }
+            this.isEmpty = function () {
+                return this.weight === 0;
+            }
+            this.getWeight = function () {
+                return this.weight;
+            }
+        }
+
+        var Human = function (name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+            this.isMale = function () {
+                return this.gender === true;
+            }
+
+            this.setGender = function (gender) {
+                this.gender = gender;
+            }
+
+            this.checkApple = function (apple) {
+                return apple.isEmpty();
+            }
+
+            this.eat = function (apple) {
+                if (apple.getWeight() > 0) {
+                    apple.decrease();
+                    this.weight++;
+                }
+            }
+
+            this.say = function (message) {
+                return message;
+            }
+
+            this.getName = function () {
+                return this.name;
+            }
+
+            this.setName = function (name) {
+                this.name = name;
+            }
+
+            this.getWeight = function () {
+                return this.weight;
+            }
+
+            this.setWeight = function (weight) {
+                this.weight = weight;
+            }
+        }
+
+        var apple = new Apple(10);
+        var adam = new Human("Adam", true, 55);
+        var eva = new Human("Eva", false, 50);
+
+        document.getElementById("apple").innerHTML = apple.getWeight();
+        document.getElementById("adam").innerHTML = adam.getWeight();
+        document.getElementById("eva").innerHTML = eva.getWeight();
+
+        function update(who) {
+            document.getElementById("apple").innerHTML = apple.getWeight();
+            if (apple.isEmpty()) {
+                document.getElementById("message").innerHTML = "Apple is empty";
+            } else {
+                if (who === "adam") {
+                    document.getElementById("adam").innerHTML = adam.getWeight();
+                    console.log(adam.say("Hihi"));
+                } else if (who === "eva") {
+                    document.getElementById("eva").innerHTML = eva.getWeight();
+                }
+            }
+        };
+
+        function eatApple(who) {
+            who === "adam" ? adam.eat(apple) : eva.eat(apple);
+            update(who);
+        };
+    </script>
+</body>
+
+</html>
